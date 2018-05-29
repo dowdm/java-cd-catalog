@@ -1,0 +1,34 @@
+{{#partial "collection"}}
+
+    <h1>CD List!</h1>
+
+    {{#if cds}}
+        {{#each cds}}
+            <p>Current CD:</p>
+            <p>{{title}}</p>
+            <p>{{artist}}</p>
+            <p>{{year}}</p>
+            <p>{{genre}}</p>
+        {{/each}}
+        {{else}}
+            <p>No CDs</p>
+    {{/if}}
+
+    <p>Add a new CD:</p>
+
+    <form action="/cds/new" method="POST">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text">
+        <label for="artist">Artist</label>
+        <input id="artist" name="artist" type="text">
+        <label for="year">Year</label>
+        <input id="year" name="year" type="number">
+        <label for="genre">Genre</label>
+        <input id="genre" name="genre" type="text">
+
+        <button type="submit">Add CD</button>
+    </form>
+
+{{/partial}}
+
+{{> layout.hbs}}
